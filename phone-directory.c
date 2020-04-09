@@ -1,5 +1,4 @@
 //Selman Burak Karagöl
-//18010011062
 //Telephone Guide With Linked List
 
 #include <stdio.h>
