@@ -1,5 +1,5 @@
 //Selman Burak Karagöl
-//Telephone Guide With Linked List
+//Telephone Directory With Linked List
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -51,9 +51,9 @@ void Menu(human *root)
 
 		printf("\n--Menu--\n");
 		printf("0-Exit\n");
-		printf("1-Show All Guide\n");
+		printf("1-Show All Directory\n");
 		printf("2-Add New Person\n");
-		printf("3-Delete From Guide\n");
+		printf("3-Delete From Directory\n");
 		printf("4-Update Person\n");
 		printf("5-Search\n");
 		printf("6-Sort\n");
@@ -131,7 +131,7 @@ int main()
 	Menu(root);
 }
 
-human *createBox(human *loadedBox, human *root) //this function gona be take the informations before add new human to Guide
+human *createBox(human *loadedBox, human *root) //this function gona be take the informations before add new human to Directory
 {
 	human *box = (human *)malloc(sizeof(human));
 
@@ -192,15 +192,15 @@ human *delete (human *willDelete, human *r)
 	human *iter = r;
 	human *temp;
 
-	if (r == NULL) //guide is empty
+	if (r == NULL) //Directory is empty
 	{
-		printf("Nobody on Guide");
+		printf("Nobody on Directory");
 		return r;
 	}
-	if (r == willDelete) //try to delete first box on guide
+	if (r == willDelete) //try to delete first box on Directory
 	{
 		temp = r;
-		iter = iter->next; //this line loosing the root*********************************
+		iter = iter->next; 
 		if (iter != NULL)
 		{
 			iter->prev = temp->prev;
@@ -216,7 +216,7 @@ human *delete (human *willDelete, human *r)
 	iter->next = iter->next->next;
 	if (temp->next != NULL) //This line control try to delete last box on the link list.When try to delete last, we should not control null->next->prev.
 	{
-		temp->next->prev = iter; //this line close the program ************************
+		temp->next->prev = iter; 
 	}
 	free(temp);
 	return r;
@@ -234,7 +234,7 @@ human *search(human *r, int from)
 
 	if (r == NULL)
 	{
-		printf("Guide is Empty");
+		printf("Directory is Empty");
 		return r;
 	}
 
@@ -382,7 +382,7 @@ void show(human *willShow)
 {
 	if (willShow == NULL)
 	{
-		printf("\nNobody on Guide\n\n");
+		printf("\nNobody on Directory\n\n");
 	}
 	while (willShow != NULL)
 	{
